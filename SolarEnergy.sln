@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarEnergy", "SolarEnergy\SolarEnergy.csproj", "{B793F609-8099-4B7B-BE2C-19CCC315E5C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{5550A582-F04A-483A-9BCC-7F9233EB9FC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B793F609-8099-4B7B-BE2C-19CCC315E5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B793F609-8099-4B7B-BE2C-19CCC315E5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B793F609-8099-4B7B-BE2C-19CCC315E5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B793F609-8099-4B7B-BE2C-19CCC315E5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5550A582-F04A-483A-9BCC-7F9233EB9FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5550A582-F04A-483A-9BCC-7F9233EB9FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5550A582-F04A-483A-9BCC-7F9233EB9FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5550A582-F04A-483A-9BCC-7F9233EB9FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F1D37EC-FA23-4A1D-86CA-3F3330E5FEE4}
+	EndGlobalSection
+EndGlobal

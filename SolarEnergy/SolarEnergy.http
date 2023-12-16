@@ -1,0 +1,6 @@
+@SolarEnergy_HostAddress = http://localhost:5052
+
+GET {{SolarEnergy_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
