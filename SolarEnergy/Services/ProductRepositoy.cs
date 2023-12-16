@@ -12,39 +12,11 @@ namespace SolarEnergy.Services
     {
 
         private readonly ApplicationDbContext _context;
-        private readonly IWebHostEnvironment _webHostEnvironment;
 
 
-        public ProductRepositoy(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment) : base(context)
+        public ProductRepositoy(ApplicationDbContext context) : base(context)
         {
             _context = context;
-            _webHostEnvironment = webHostEnvironment;
-        }
-        new public async Task AddAsync(ProductCreateDto product)
-        {
-
-            //foreach (var item in product.FileImages)
-            //{
-            //    string stringFileName = SaveFile(item);
-            //    var image = new Image
-            //    {
-            //        ImagePath = stringFileName
-            //    };
-            //    _context.Images.Add(image);
-            //    _context.SaveChanges();
-            //}
-            string PdfFile = SaveFile(product.FilePath);
-            var newProduct = new Product()
-            {
-                FilePath = PdfFile
-            };
-            //await _context.Products.AddAsync(newProduct);
-            //await _context.SaveChangesAsync();
-
-            //await _context.Products.AddAsync(newProduct);
-            //await _context.SaveChangesAsync();
-
-            //return newProduct;
         }
 
         new public async Task<List<Product>> GetAllAsync()
@@ -65,26 +37,6 @@ namespace SolarEnergy.Services
             return product;
         }
 
-        public string SaveFile(IFormFile file)
-        {
-            string fileName = null;
-            if (file != null)
-            {
-                string uploadDirection = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads");
-                fileName = Guid.NewGuid().ToString() + "-" + file.FileName;
-                string filePath = Path.Combine(uploadDirection, fileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    file.CopyTo(fileStream);
-                    fileStream.Flush();
-                    if (string.IsNullOrWhiteSpace(_webHostEnvironment.WebRootPath))
-                    {
-                        _webHostEnvironment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                    }
-                }
-
-            }
-            return fileName;
-        }
+        
     }
 }

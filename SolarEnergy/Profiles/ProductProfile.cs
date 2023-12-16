@@ -8,22 +8,12 @@ namespace SolarEnergy.Mapper
 {
     public class ProductProfile:Profile
     {
-        private IWebHostEnvironment  _webHostEnvironment;
-
-        public ProductProfile()
+        public ProductProfile() 
         {
-
-        }
-        public ProductProfile(IWebHostEnvironment webHostEnvironment) 
-        {
-            _webHostEnvironment = webHostEnvironment;
-            CreateMap<ProductCreateDto, Product>().ForMember(s => s.FilePath, d => d.Ignore());
-            CreateMap<CategoryDto, Category>().ReverseMap();
-            //.ForMember(s=>s.FilePath,d=>d.MapFrom(src => new UploadFile(_webHostEnvironment)
-            //.SaveFile(src.FilePath)));
-            //.ForMember(s=>s.ImagePath,d=>d.Ignore());
-            //   .ForMember(dest => dest.FileImages, opt => opt.MapFrom(src => src.FileImages));
+            CreateMap<ProductCreateDto, Product>().ReverseMap();
+            CreateMap<ProductGetDto, Product>().ReverseMap();
             CreateMap<Image, ImagesDto>().ReverseMap();
+            CreateMap<Category,CategoryDto>().ReverseMap();
         }
     }
 }

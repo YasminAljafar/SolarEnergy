@@ -5,6 +5,6 @@ namespace Domain.Models
     public class Image
     {
         public int Id { get; set; }
-        public IFormFile? ImagePath { get; set; }
+        public string? ImagePath { get; set; }
     }
 }

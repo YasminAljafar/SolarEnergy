@@ -10,3 +10,4 @@ C:\Users\yasmin\source\repos\SolarEnergy\Domain\obj\Debug\net8.0\refint\Domain.d
 C:\Users\yasmin\source\repos\SolarEnergy\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\yasmin\source\repos\SolarEnergy\Domain\obj\Debug\net8.0\ref\Domain.dll
 C:\Users\yasmin\source\repos\SolarEnergy\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\Users\yasmin\source\repos\SolarEnergy\Domain\obj\Debug\net8.0\Domain.sourcelink.json
