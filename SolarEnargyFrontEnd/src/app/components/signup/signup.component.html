@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="login col-5 mt-4 mb-5 ar">
+      <div class="container  hadow-sm p-3 mb-5 bg-body-tertiary rounded" style="margin: 70px;  " >
+        <h3 >تسجيل حساب</h3>
+        <hr>
+        <form [formGroup]="userForm" (ngSubmit)="signup()" >
+        <div class="form-floating mb-3">
+            <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">البريد الالكتروني</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">كلمة المرور</label>
+          </div>
+          <button type="submit" class="btn btn-primary mt-4 mb-3 ">تسجيل</button>
+           <div> 
+              لدي حساب؟
+            <a href="login">تسجيل دخول</a>
+           </div>   
+        </form>
+      </div>
+    </div>
+</div>

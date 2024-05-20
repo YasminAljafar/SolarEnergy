@@ -2,7 +2,7 @@
 {
     public class ImagesDto
     {
-        public int Id { get; set; }
-        public IFormFile? ImagePath { get; set; }
+        public string ImagePath { get; set; }
+        public int ProductId { get; set; }
     }
 }

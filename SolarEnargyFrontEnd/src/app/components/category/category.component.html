@@ -1,0 +1,21 @@
+<div class="container mt-4">   
+<div class="alert alert-primary" role="alert">
+    قائمة التصنيفات
+    </div>
+    <button type="button" class="btn btn-success">إضافة صنف</button>
+    
+    <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">اسم الصنف</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories">
+                <td scope="row">{{category.id}}</td>
+                <td scope="row">{{category.name}}</td>
+              </tr>
+            </tbody>
+      </table>
+</div>

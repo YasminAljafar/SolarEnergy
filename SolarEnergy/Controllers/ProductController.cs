@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,16 +16,13 @@ namespace SolarEnergy.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
-        private readonly IWebHostEnvironment _webHostEnvironment;
 
-
-
-        public ProductController(IProductRepository productRepository, IMapper mapper, IWebHostEnvironment webHostEnvironment)
+        public ProductController(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _mapper = mapper;
-            _webHostEnvironment = webHostEnvironment;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -40,78 +38,34 @@ namespace SolarEnergy.Controllers
         }
 
         [HttpPost]
+        //[Authorize]
         public async Task<ActionResult<Product>> Add(ProductCreateDto product)
         { 
             var newProduct = _mapper.Map<ProductCreateDto,Product>(product);
-            string url=string.Empty;    
-            foreach (var image in product.FileImages)
-            {
-                url = UploadFile(image);
-                newProduct.FileImages.Add(new Image
-                {
-                    ImagePath = url
-                }) ;
-            }
             await _productRepository.AddAsync(newProduct);
-
-            return Created("added successfully",newProduct);
+            return Created("added successfully", newProduct);
         }
 
-        // <summary>
-        // end point for update
-        // </summary>
-        // <param name = "car" ></ param >
-        // < param name="id"></param>
-        // <returns>updated car</returns>
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult<Product>> Update(Product product, int id)
+        [HttpPut]
+        [Authorize]
+        public async Task<ActionResult<Product>> Update(ProductCreateDto product)
         {
-            var existingProduct = await _productRepository.GetByIdAsync(id);
-            if (existingProduct == null)
+            var updatedProduct = _mapper.Map<ProductCreateDto, Product>(product);
+            if (updatedProduct == null)
             {
                 return NotFound();
             }
-            existingProduct.Name = product.Name;
-            existingProduct.Price = product.Price;
-           // existingProduct.FilePath = product.FilePath;
-            existingProduct.Description = product.Description;
-            existingProduct.Category = product.Category;
-          //  existingProduct.Images = product.Images;
-            await _productRepository.UpdateAsync(existingProduct);
-            return Ok(existingProduct);
+            await _productRepository.UpdateAsync(updatedProduct);
+            return Ok(updatedProduct);
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Product>> Delete(int id)
         {
             var product = await _productRepository.DeleteAsync(id);
             return Ok("has deletd");
-        }
-
-        private string UploadFile(IFormFile file)
-        {
-            string url = string.Empty;
-            if (file?.Length > 0)
-            {
-                var path = _webHostEnvironment.WebRootPath + "\\" + "Uploads\\";
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-
-                using (FileStream fileStream = System.IO.File.Create(path + file.FileName))
-                {
-                    file.CopyTo(fileStream);
-                    fileStream.Flush();
-                    if (string.IsNullOrWhiteSpace(_webHostEnvironment.WebRootPath))
-                    {
-                        _webHostEnvironment.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-                    }
-                    url = _webHostEnvironment.WebRootPath.Replace("\\", "/") + "/Uploads/" + file.FileName;
-                }
-
-            }
-            return url;
-        }
+        } 
     }
 }
 

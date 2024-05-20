@@ -1,0 +1,19 @@
+<div class="container"> 
+  <h1 class="mt-4  flex text-center">المنتجات</h1>
+  <a class="btn btn-success m-4" href="addproduct">إضافة منتج</a>
+  <div class="container d-flex align-content-around flex-wrap ">
+    <div class="card col-4"  style="width: 18rem; margin: 20px;" *ngFor="let product of products">
+      <img src="/assets/images/1 (2).jpg" class="card-img-top" alt="...">
+      <div class="card-body"   >
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <p class="card-text">{{product.category.name}}</p>
+        <p class="card-text">{{product.id}}</p>
+        <a href="#" class="btn btn-primary" >{{product.price | currency}}</a>
+      </div>
+  </div>
+  </div>
+</div>
+
+
+  

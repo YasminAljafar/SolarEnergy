@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SolarEnergy.Services;
@@ -7,6 +8,7 @@ using SolarEnergy.ViewModel;
 namespace SolarEnergy.Controllers
 {
     [Route("api/[controller]")]
+   // [Authorize]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -17,6 +19,7 @@ namespace SolarEnergy.Controllers
             _categoryRepository = categoryRepository;
         }
         [HttpGet]
+       // [Route("GetAllCategories")]
         public async Task<IActionResult> GetAll()
         {
             var categories = await _categoryRepository.GetAllAsync();

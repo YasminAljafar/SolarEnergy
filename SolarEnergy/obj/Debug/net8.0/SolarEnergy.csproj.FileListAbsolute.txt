@@ -140,3 +140,6 @@ C:\Users\yasmin\source\repos\SolarEnergy\SolarEnergy\bin\Debug\net8.0\Domain.pdb
 C:\Users\yasmin\source\repos\SolarEnergy\SolarEnergy\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\yasmin\source\repos\SolarEnergy\SolarEnergy\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\yasmin\source\repos\SolarEnergy\SolarEnergy\obj\Debug\net8.0\SolarEnergy.sourcelink.json
+C:\Users\yasmin\source\repos\SolarEnergy\SolarEnergy\bin\Debug\net8.0\Scrutor.dll
+C:\Users\yasmin\source\repos\SolarEnergy\SolarEnergy\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\yasmin\source\repos\SolarEnergy\SolarEnergy\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
